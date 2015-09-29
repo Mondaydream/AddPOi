@@ -229,7 +229,7 @@
     
     if ([[self.dataArray[indexPath.row] objectForKey:@"isAdd"] boolValue]) {
         //close Space
-        if ([[_dataArray[indexPath.row ] objectForKey:@"Cell"] isEqualToString:@"mainCell"]) {
+        if ([[self.dataArray[indexPath.row ] objectForKey:@"Cell"] isEqualToString:@"mainCell"]) {
             NSMutableDictionary *dic = [NSMutableDictionary dictionaryWithDictionary:self.dataArray[indexPath.row]];
             [dic setValue:@(NO) forKey:@"isAdd"];
             self.dataArray[(path.row - 1)] = dic;
@@ -244,7 +244,7 @@
         [self.tableView endUpdates];
     }else{
         //  open Space
-        if ([[_dataArray[indexPath.row] objectForKey:@"Cell"] isEqualToString:@"newCell"]) {
+        if ([[self.dataArray[indexPath.row] objectForKey:@"Cell"] isEqualToString:@"newCell"]) {
             NSMutableDictionary *dic = [NSMutableDictionary dictionaryWithDictionary:self.dataArray[indexPath.row]];
             [dic setValue:@(YES) forKey:@"isAdd"];
             self.dataArray[(path.row - 1)] = dic;
@@ -284,7 +284,7 @@
     UITouch *touch = [touches anyObject];
     CGPoint currentPositon = [touch locationInView:_poiView];
     CGPoint viewPositon = _poiView.center;
-
+   
     float offsetX = currentPositon.x - _pointBegin.x;
     float offsetY = currentPositon.y - _pointBegin.y;
     [_poiView setCenter:CGPointMake(viewPositon.x + offsetX, viewPositon.y + offsetY)];
